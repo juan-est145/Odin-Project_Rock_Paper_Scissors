@@ -1,0 +1,16 @@
+@font-face {
+    font-family: "Play";
+    src: url("./Fonts/Play/Play-Regular.ttf");
+}
+
+body
+{
+    background-color: black;
+    text-align: center;
+}
+
+#Title, #Rules
+{
+    color: white;
+    font-family: "Play";
+}
