@@ -14,3 +14,20 @@ body
     color: white;
     font-family: "Play";
 }
+
+#Title
+{
+    text-decoration: underline;
+}
+
+#ButtonsContainer
+{
+    display: flex;
+    justify-content: center;
+    justify-content: space-evenly;
+}
+
+#ButtonsContainer button
+{
+    
+}
