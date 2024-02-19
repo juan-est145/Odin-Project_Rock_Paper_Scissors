@@ -9,7 +9,7 @@ body
     text-align: center;
 }
 
-#Title, #Rules, #CurrentScore, #RoundElections
+#Title, #Rules, #CurrentScore, #RoundElections, #WinnerOfRound
 {
     color: white;
     font-family: "Play";
