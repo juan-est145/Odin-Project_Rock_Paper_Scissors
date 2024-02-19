@@ -9,10 +9,28 @@ body
     text-align: center;
 }
 
-#Title, #Rules, #CurrentScore
+#Title, #Rules, #CurrentScore, #RoundElections
 {
     color: white;
     font-family: "Play";
+}
+
+#RoundElections
+{
+    display: flex;
+    font-size: xx-large;
+    justify-content: center;
+    justify-content: space-evenly;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+#RoundElections span
+{
+    display: block;
+    margin-top: 30px;
+    background-color: white;
+    border-radius: 20px;
 }
 
 #Title
