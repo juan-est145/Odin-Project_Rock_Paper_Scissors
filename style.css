@@ -30,12 +30,12 @@ body
 {
     display: block;
     margin-top: 30px;
-    background-color: white;
+    background-color: rgb(238, 220, 220);
     border-radius: 50%;
     font-size: 60px;
     text-align: center;
-    width: 90x;
-    height: 90px;
+    max-width: 150px;
+    max-height: 300px;
 }
 
 #Title
@@ -50,7 +50,10 @@ body
     justify-content: space-evenly;
     gap: 20px;
     align-items: center;
-    /*height: 500px;*/
+    /*height: 500px; This comment is here because I was 
+    changing moving the div with height, now is better with
+    margin instead, erase later
+    */
     margin-top: 200px;
     margin-bottom: 60px;
     flex-wrap: wrap;
