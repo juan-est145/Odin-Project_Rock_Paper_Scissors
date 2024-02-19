@@ -29,6 +29,7 @@ body
     align-items: center;
     /*height: 500px;*/
     margin-top: 230px;
+    flex-wrap: wrap;
 }
 
 #ButtonsContainer button
