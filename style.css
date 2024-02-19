@@ -49,4 +49,5 @@ body
     flex-wrap: wrap;
     min-width: 200px;
     margin-top: 80px;
+    gap: 20px;
 }
