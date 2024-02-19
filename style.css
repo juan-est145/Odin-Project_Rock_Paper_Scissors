@@ -25,9 +25,14 @@ body
     display: flex;
     justify-content: center;
     justify-content: space-evenly;
+    gap: 20px;
+    align-items: center;
+    height: 500px;
 }
 
 #ButtonsContainer button
 {
-    
+    height: 100px;
+    width: 150px;
+    font-size: 60px;
 }
