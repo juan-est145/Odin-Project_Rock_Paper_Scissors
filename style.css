@@ -43,6 +43,13 @@ body
     text-decoration: underline;
 }
 
+#WinnerOfRound
+{
+    display: flex;
+    justify-content: center;
+    font-size: xx-large;
+}
+
 #ButtonsContainer
 {
     display: flex;
