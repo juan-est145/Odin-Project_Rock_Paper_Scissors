@@ -41,6 +41,7 @@ function playRound(playerSelection)
             winnerOfGame.textContent = "You win the game 🥳🥳🥳";
         else if ((scores[0] < scores[1]))
             winnerOfGame.textContent = "You lose the game 😢😢😢";
+        activateRetryButton();
     }
 }
 
@@ -71,3 +72,12 @@ function determineWinner(playerSelection, computerSelection)
     pWinnerOfRound.textContent = "Draw";
 }
 
+function activateRetryButton()
+{
+    const   retryButton = document.querySelector("#TryAgain");
+    retryButton.style.display = "inline";
+    retryButton.addEventListener("click", ()=>
+    {
+        location.reload();
+    });
+}

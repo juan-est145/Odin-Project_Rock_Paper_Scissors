@@ -52,6 +52,15 @@ body
     margin-bottom: 5px;
 }
 
+#TryAgain
+{
+    font-family: "Play";
+    background-color:rgb(22, 63, 146);
+    color: white;
+    font-size: xx-large;
+    display: none;
+}
+
 #ButtonsContainer
 {
     display: flex;
