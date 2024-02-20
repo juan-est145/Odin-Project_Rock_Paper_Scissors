@@ -1,3 +1,19 @@
+const   playerButtons = document.querySelector("#ButtonsContainer");
+playerButtons.addEventListener("click", clickButton);
+
+//scores[0] corresponds to the player and scores[1] corresponds to the computer
+let scores = [0,0];
+
+function    clickButton(event)
+{
+    if (event.target.classList.contains("Rock"))
+       playRound("🗿");
+    else if (event.target.classList.contains("Paper"))
+       playRound("📰");
+    else if (event.target.classList.contains("Scissors"))
+        playRound("✂️");
+}
+
 function getComputerChoice()
 {
     const arrayOfPlays = ["🗿", "📰", "✂️"];
@@ -17,6 +33,15 @@ function playRound(playerSelection)
     playerOptionDisplay.textContent = playerSelection;
     computerOptionDisplay.textContent = computerChoice;
     determineWinner(playerSelection, computerChoice);
+    if (scores[0] >= 5 || scores[1] >= 5)
+    {
+        playerButtons.removeEventListener("click", clickButton);
+        const   winnerOfGame = document.querySelector("#WinnerOfRound");
+        if (scores[0] > scores[1])
+            winnerOfGame.textContent = "You win the game 🥳🥳🥳";
+        else if ((scores[0] < scores[1]))
+            winnerOfGame.textContent = "You lose the game 😢😢😢";
+    }
 }
 
 function determineWinner(playerSelection, computerSelection)
@@ -46,16 +71,3 @@ function determineWinner(playerSelection, computerSelection)
     pWinnerOfRound.textContent = "Draw";
 }
 
-const   playerButtons = document.querySelector("#ButtonsContainer");
-playerButtons.addEventListener("click", (e) =>
-{
-    if (e.target.classList.contains("Rock"))
-       playRound("🗿");
-    else if (e.target.classList.contains("Paper"))
-       playRound("📰");
-    else if (e.target.classList.contains("Scissors"))
-        playRound("✂️");
-});
-
-//scores[0] corresponds to the player and scores[1] corresponds to the computer
-let scores = [0,0];
