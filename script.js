@@ -38,9 +38,9 @@ function playRound(playerSelection)
         playerButtons.removeEventListener("click", clickButton);
         const   winnerOfGame = document.querySelector("#WinnerOfRound");
         if (scores[0] > scores[1])
-            winnerOfGame.textContent = "You win the game 🥳🥳🥳";
+            winnerOfGame.textContent = "You have won the game 🥳🥳🥳";
         else if ((scores[0] < scores[1]))
-            winnerOfGame.textContent = "You lose the game 😢😢😢";
+            winnerOfGame.textContent = "You have lost the game 😢😢😢";
         activateRetryButton();
     }
 }
