@@ -76,4 +76,15 @@ function determineWinner(playerSelection, computerSelection, scores)
     }
 }
 
-getPlayerSelection();
+const   playerButtons = document.querySelector("#ButtonsContainer");
+playerButtons.addEventListener("click", (e) =>
+{
+    if (e.target.classList.contains("Rock"))
+        console.log("Rock");
+    else if (e.target.classList.contains("Paper"))
+        console.log("Paper");
+    else if (e.target.classList.contains("Scissors"))
+        console.log("Scissors");
+});
+
+//getPlayerSelection();
