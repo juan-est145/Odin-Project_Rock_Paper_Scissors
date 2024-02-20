@@ -1,90 +1,61 @@
 function getComputerChoice()
 {
-    const arrayOfPlays = ["Rock", "Paper", "Scissors"];
+    const arrayOfPlays = ["🗿", "📰", "✂️"];
     let selectItem = Math.floor(Math.random() * 3);
 
     if (selectItem > 2)
         selectItem = 2;
-    return (arrayOfPlays[selectItem].toUpperCase());
+    return (arrayOfPlays[selectItem]);
 }
 
-function getPlayerSelection()
+function playRound(playerSelection)
 {
-    //scores[0] corresponds to the player and scores[1] corresponds to the computer
-    let scores = [0,0];
-    for (let index = 0; index < 5; index++) 
-    {
-        let computerSelection = getComputerChoice();
-        let playerSelection = prompt("Choose rock, paper or scissors").toUpperCase();
-        determineWinner(playerSelection, computerSelection, scores);
-    }
-    if (scores[0] > scores[1])
-        console.log("Player wins the game");
-    else if (scores[0] < scores[1])
-        console.log("Player loses the game");
-    else
-        console.log("The game ends in a draw");
-
+    const   playerOptionDisplay = document.querySelector(".PlayerChoice");
+    const   computerOptionDisplay = document.querySelector(".CpuChoice");
+    let     computerChoice = getComputerChoice();
+    
+    playerOptionDisplay.textContent = playerSelection;
+    computerOptionDisplay.textContent = computerChoice;
+    determineWinner(playerSelection, computerChoice);
 }
 
-function determineWinner(playerSelection, computerSelection, scores)
+function determineWinner(playerSelection, computerSelection)
 {
-    if (playerSelection === "ROCK")
+    const   pWinnerOfRound = document.querySelector("#WinnerOfRound");
+    const   playerScore = document.querySelector(".PlayerScore");
+    const   cpuScore = document.querySelector(".CPUScore");
+    const   plays = 
     {
-        if (computerSelection === "SCISSORS")
-        {
-            console.log("You win, Rock beats Scissors");
-            scores[0]++;
-        }     
-        else if (computerSelection === "PAPER")
-        {
-            console.log("You lose, Paper beats Rock");
-            scores[1]++;
-        }        
-        else
-            console.log("Draw");
+        "🗿": {weakTo: "📰", strongTo: "✂️"},
+        "📰": {weakTo: "✂️", strongTo: "🗿"},
+        "✂️": {weakTo: "🗿", strongTo: "📰"}
+    } 
+    if (plays[playerSelection].strongTo === computerSelection)
+    {
+        pWinnerOfRound.textContent = `You win this round, ${playerSelection} beats ${computerSelection}`;
+        scores[0]++;
+        playerScore.textContent = scores[0].toString();
     }
-    else if (playerSelection === "PAPER")
+    else if (plays[playerSelection].weakTo === computerSelection)
     {
-        if (computerSelection === "ROCK")
-        {
-            console.log("You win, Paper beats Rock");
-            scores[0]++;
-        }
-        else if (computerSelection === "SCISSORS")
-        {
-            console.log("You lose, Scissors beats Paper");
-            scores[1]++;
-        }  
-        else
-            console.log("Draw");
+        pWinnerOfRound.textContent = `You lose this round, ${computerSelection} beats ${playerSelection}`;
+        scores[1]++;
+        cpuScore.textContent = scores[1].toString();
     }
     else
-    {
-        if (computerSelection === "PAPER")
-        {
-            console.log("You win, Scissors beats Paper");
-            scores[0]++;
-        } 
-        else if (computerSelection === "ROCK")
-        {
-            console.log("You lose, Rock beats Scissors");
-            scores[1]++;
-        }     
-        else
-            console.log("Draw");
-    }
+    pWinnerOfRound.textContent = "Draw";
 }
 
 const   playerButtons = document.querySelector("#ButtonsContainer");
 playerButtons.addEventListener("click", (e) =>
 {
     if (e.target.classList.contains("Rock"))
-        console.log("Rock");
+       playRound("🗿");
     else if (e.target.classList.contains("Paper"))
-        console.log("Paper");
+       playRound("📰");
     else if (e.target.classList.contains("Scissors"))
-        console.log("Scissors");
+        playRound("✂️");
 });
 
-//getPlayerSelection();
+//scores[0] corresponds to the player and scores[1] corresponds to the computer
+let scores = [0,0];
